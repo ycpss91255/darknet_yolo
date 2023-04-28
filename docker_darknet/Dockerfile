@@ -82,12 +82,6 @@ RUN git clone https://github.com/AlexeyAB/darknet.git /home/"${USER}"/darknet &&
     sed -i 's/ARCH= -gencode arch=compute_35,code=sm_35/ARCH= -gencode arch=compute_${CUDA_ARCH_BIN},code=sm_${CUDA_ARCH_BIN}/g' /home/"${USER}"/darknet/Makefile && \
     make -C /home/"${USER}"/darknet
 
-# * Install Label studio
-# RUN pip3 install --upgrade pip && \
-#     pip3 install --upgrade setuptools && \
-#     pip3 install --upgrade wheel && \
-#     pip3 install --upgrade label-studio
-
 # ENV PATH="/home/"${USER}"/darknet:${PATH}"
 
 ############################### OTHER #######################################
@@ -98,13 +92,6 @@ COPY --chmod=0775 ./${ENTRYPOINT_FILE} /entrypoint.sh
 # COPY ./${ENTRYPOINT_FILE} /entrypoint.sh
 # RUN sudo chmod 0775 /entrypoint.sh
 
-# * Switch user to ${USER}
-USER ${USER}
-
-# * Make SSH available
-EXPOSE 22
-
-############################## USER CONFIG ####################################
 # * Copy custom configuration
 # ? Requires docker version >= 17.09
 COPY --chown="${USER}":"${GROUP}" --chmod=0775 config config
@@ -113,15 +100,25 @@ COPY --chown="${USER}":"${GROUP}" --chmod=0775 config config
 # RUN sudo chown -R "${USER}":"${GROUP}" config \
     # && sudo chmod -R 0775 config
 
+# * Install python packages
+RUN ./config/pip/pip_setup.sh
+
+# * Make SSH available
+EXPOSE 22
+
+############################## USER CONFIG ####################################
+# * Switch user to ${USER}
+USER ${USER}
+
+# * Setup user configuration
 RUN ./config/shell/bash_setup.sh "${USER}" "${GROUP}" && \
     ./config/shell/terminator/terminator_setup.sh "${USER}" "${GROUP}" && \
     ./config/shell/tmux/tmux_setup.sh "${USER}" "${GROUP}" && \
-    ./config/pip/pip_setup.sh && \
     sudo rm -rf /config
 
-RUN sudo mkdir /home/"${USER}"/work
 
-# * Switch workspace to ~/work
+# * Switch workspace to /home/"${USER}"/work
+RUN sudo mkdir /home/"${USER}"/work
 WORKDIR /home/"${USER}"/work
 
 # ENTRYPOINT [ "/entrypoint.sh", "terminator" ]

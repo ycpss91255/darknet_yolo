@@ -1,3 +1,1 @@
 # install python dep
-label-studio==1.7.3
-
