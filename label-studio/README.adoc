@@ -1,0 +1,91 @@
+= README
+:experimental:
+:toc: left
+
+== English version
+
+=== dependencies
+* docker
+
+=== Usage
+* run label studio script(`run.sh`).
+* go to https://0.0.0.0:8080 and upload the project.
+
+'''
+
+[NOTE]
+====
+The following content needs to be converted accordingly.
+
+`<label_studio_path>` is the path of label studio project.
+`<save_server_data_path>` is the path of save server data.
+====
+
+[source, shell]
+.run label studio
+----
+git clone https://github.com/ycpss91255/darknet_yolo.git
+cd <label_studio_path>
+chmod +x ./run.sh
+./run.sh
+# or
+./run.sh <save_server_data_path>
+----
+
+[source, shell]
+.del all label studio data
+----
+cd <label_studio_path>
+chmod +x ./del_server_data.sh
+./del_server_data.sh
+# or
+./del_server_data.sh <save_server_data_path>
+----
+
+=== Label Studio
+
+* look at https://labelstud.io/
+
+== 中文版
+
+=== 依賴項
+* docker
+
+=== 使用方法
+* 執行 label studio 腳本(`run.sh`)。
+* 前往 http://0.0.0.0:8080 並上傳專案。
+
+'''
+
+[NOTE]
+====
+以下內容需要進行對應的轉換。
+
+`<label_studio_path>` 是 label studio 專案的路徑。
+`<save_server_data_path>` 是儲存伺服器資料的路徑。
+====
+
+[source, shell]
+.運行 label studio
+----
+git clone http://github.com/ycpss91255/darknet_yolo.git
+cd <label_studio_path>
+chmod +x ./run.sh
+./run.sh
+# 或者
+./run.sh <save_server_data_path>
+----
+
+[source, shell]
+.刪除所有 label studio 資料
+----
+cd <label_studio_path>
+chmod +x ./del_server_data.sh
+./del_server_data.sh
+# 或者
+./del_server_data.sh <save_server_data_path>
+----
+
+=== Label Studio
+
+* 看 https://labelstud.io/
