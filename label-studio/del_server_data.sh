@@ -4,7 +4,7 @@
 
 save_dir="${1:-"$(dirname "$(readlink -f "${0}")")"}"
 
-if [[ -z $(find "${save_dir}/server_data" -mindepth 1 -print -quit 2>/dev/null) ]]; then
+if [[ ! -d "${save_dir}/server_data" ]]; then
     echo "file not found: ${save_dir}/server_data"
 else
     sudo rm -rf "${save_dir}/server_data" > /dev/null 2>&1 && \
