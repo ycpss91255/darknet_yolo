@@ -1,11 +1,29 @@
 {
     "recommendations": [
-        "dpkristensen-garmin.udev-rules",
         "jeff-hykin.better-dockerfile-syntax",
         "jeff-hykin.better-shellscript-syntax",
         "truman.autocomplate-shell",
         "aaron-bond.better-comments",
         "foxundermoon.shell-format",
-        "timonwong.shellcheck"
+        "timonwong.shellcheck",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "littlefoxteam.vscode-python-test-adapter",
+        "ms-iot.vscode-ros",
+        "hansrobo.ros2-snippets",
+        "dpkristensen-garmin.udev-rules",
+        "redhat.vscode-xml",
+        "dotjoshjohnson.xml",
+        "redhat.vscode-yaml",
+        "kevinrose.vsc-python-indent",
+        "ajshort.msg",
+        "ms-python.isort",
+        "ms-toolsai.jupyter",
+        "hyeon.c-math-viewer",
+        "matepek.vscode-catch2-test-adapter",
+        "njpwerner.autodocstring",
+        "formulahendry.auto-rename-tag",
+        "formulahendry.auto-close-tag",
+        "ms-python.autopep8"
     ]
 }
