@@ -1,4 +1,6 @@
 = README
 
-==
 // TODO: add data folder depiction
+
+== Reference
+* https://github.com/AlexeyAB/darknet/tree/master/cfg[Darknet cfg]
