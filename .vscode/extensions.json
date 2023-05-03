@@ -24,6 +24,7 @@
         "njpwerner.autodocstring",
         "formulahendry.auto-rename-tag",
         "formulahendry.auto-close-tag",
-        "ms-python.autopep8"
+        "ms-python.autopep8",
+        "almenon.arepl"
     ]
 }
