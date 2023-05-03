@@ -55,13 +55,12 @@ RUN apt update && \
         pkg-config \
         build-essential \
         libopencv-dev \
+        # pytorch-YOLOv4
+        # libfreetype6-dev \
         # * Work tools
     && \
     apt clean && \
     rm -rf /var/lib/apt/lists/*
-
-# gnome-terminal libcanberra-gtk-module libcanberra-gtk3-module \
-# dbus-x11 libglvnd0 libgl1 libglx0 libegl1 libxext6 libx11-6 \
 
 # * check your GPU Compute Capability
 # use `nvidia-smi -L` look your GPU name, and check your GPU Compute Capability
@@ -80,9 +79,10 @@ RUN git clone https://github.com/AlexeyAB/darknet.git /home/"${USER}"/darknet &&
     sed -i 's/CUDNN_HALF=0/CUDNN_HALF=1/g' /home/"${USER}"/darknet/Makefile && \
     sed -i 's/OPENCV=0/OPENCV=1/g' /home/"${USER}"/darknet/Makefile && \
     sed -i 's/ARCH= -gencode arch=compute_35,code=sm_35/ARCH= -gencode arch=compute_${CUDA_ARCH_BIN},code=sm_${CUDA_ARCH_BIN}/g' /home/"${USER}"/darknet/Makefile && \
-    make -C /home/"${USER}"/darknet
+    make -C /home/"${USER}"/darknet && \
+    chown -R "${USER}":"${GROUP}" /home/"${USER}"/darknet
 
-# ENV PATH="/home/"${USER}"/darknet:${PATH}"
+ENV PATH="/home/"${USER}"/darknet:${PATH}"
 
 ############################### OTHER #######################################
 # * Copy entrypoint
@@ -103,9 +103,6 @@ COPY --chown="${USER}":"${GROUP}" --chmod=0775 config config
 # * Install python packages
 RUN ./config/pip/pip_setup.sh
 
-# * Make SSH available
-EXPOSE 22
-
 ############################## USER CONFIG ####################################
 # * Switch user to ${USER}
 USER ${USER}
@@ -116,12 +113,11 @@ RUN ./config/shell/bash_setup.sh "${USER}" "${GROUP}" && \
     ./config/shell/tmux/tmux_setup.sh "${USER}" "${GROUP}" && \
     sudo rm -rf /config
 
-
 # * Switch workspace to /home/"${USER}"/work
 RUN sudo mkdir /home/"${USER}"/work
 WORKDIR /home/"${USER}"/work
 
 # ENTRYPOINT [ "/entrypoint.sh", "terminator" ]
-ENTRYPOINT [ "/entrypoint.sh", "tmux" ]
-# ENTRYPOINT [ "/entrypoint.sh", "bash" ]
+# ENTRYPOINT [ "/entrypoint.sh", "tmux" ]
+ENTRYPOINT [ "/entrypoint.sh", "bash" ]
 # ENTRYPOINT [ "/entrypoint.sh" ]
