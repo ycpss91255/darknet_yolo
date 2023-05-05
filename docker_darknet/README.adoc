@@ -2,24 +2,24 @@
 :experimental:
 :toc: left
 
-:docker_darknet_path: is the path of docker_darknet folder.
-:data_folder: is the path of data folder.
-:yolo_version: is your use YOLO version.
-:data_file: is the path of obj.data.
-:cfg_file: is the path of `<yolo_version>`.cfg.
-:weight_file: is the path of `<yolo_version>`.weights.
-
 == Usage
 === Check your GPU compute capability, change Dockerfile `ARG CUDA_ARCH_BIN`.
 * Reference: https://developer.nvidia.com/cuda-gpus
 
-=== Build Docker image
 [NOTE]
 ====
 The following content needs to be converted accordingly.
 
 1. `<docker_darknet_path>` is the path of docker_darknet folder.
+2. `<your_label_file>` is the path of your label file.
+3. `<data_folder>` is the path of data folder.
+4. `<yolo_version>` is your use YOLO version.
+5. `<data_file>` is the path of obj.data.
+6. `<cfg_file>` is the path of `<yolo_version>`.cfg.
+7. `<weight_file>` is the path of `<yolo_version>`.weights.
 ====
+
+=== Build Docker image
 
 [source, shell]
 ----
@@ -27,12 +27,6 @@ The following content needs to be converted accordingly.
 ----
 
 === Run Docker container
-[NOTE]
-====
-The following content needs to be converted accordingly.
-
-1. `<docker_darknet_path>` {docker_darknet_path}
-====
 
 [source, shell]
 ----
@@ -40,13 +34,7 @@ The following content needs to be converted accordingly.
 ----
 
 === Copy your label file to data/obj folder.
-[NOTE]
-====
-The following content needs to be converted accordingly.
 
-1. `<>` is the path of docker_darknet folder.
-2. `<docker_darknet_path>` {docker_darknet_path}
-====
 [source, shell]
 ----
 cp <your_label_file> <data_folder>/obj
@@ -57,16 +45,6 @@ cp <your_label_file> <data_folder>/obj
     * Reference: https://github.com/AlexeyAB/darknet[Darknet Github]
 
 === run darknet training *(in Docker container)*
-[NOTE]
-====
-The following content needs to be converted accordingly.
-
-1. `<data_folder>` {dat_folder}
-2. `<yolo_version>` {yolo_version}
-3. `<data_file>` {data_file}
-4. `<cfg_file>` {cfg_file}
-5. `<weight_file>` {weight_file}
-====
 
 [source, shell]
 ----
