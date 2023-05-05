@@ -8,7 +8,7 @@
 * link:./docker_label-studio/README.adoc[Label Studio Readme]
 
 === training
-* link:./docker_label-studio/README.adoc[Darknet Readme]
+* link:./docker_darknet/README.adoc[Darknet Readme]
 * link:./ssd_mobile_net_v2/README.adoc[SSD Mobile net v2 Readme]
 
 === pytorch yolov4
