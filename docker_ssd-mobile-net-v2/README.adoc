@@ -1,0 +1,13 @@
+= README
+
+python3 demo.py --config-file configs/vgg_ssd300_voc0712.yaml --images_dir demo --ckpt https://github.com/lufficc/SSD/releases/download/1.2/vgg_ssd300_voc0712.pth
+
+change ssd/utils/nms.py
+
+----
+if torchvision.__version__ >= '0.3.0':
+    _nms = torchvision.ops.nms
+else:
+    warnings.warn('No NMS is available. Please upgrade torchvision to 0.3.0+')
+    sys.exit(-1)
+----

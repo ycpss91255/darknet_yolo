@@ -1,0 +1,8 @@
+# install python dep
+numpy==1.24.3
+torch==2.0.0
+torchvision==0.15.1
+tqdm==4.43.0
+yacs==0.1.8
+opencv_python==4.7.0.72
+vizer
