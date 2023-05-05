@@ -3,8 +3,25 @@
 :toc: left
 
 == Usage
+1. Check your GPU compute capability, change Dockerfile `ARG CUDA_ARCH_BIN`.
+    * Referenve: https://developer.nvidia.com/cuda-gpus
+2. build Docker image
+    * `docker_darknet_path` is the path of docker_darknet folder.
 
+    +
+    [source, shell]
+    ----
+    ./<docker_darknet_path>/build.sh
+    ----
 
+3. run Docker container
+
+    * `docker_darknet_path` is the path of docker_darknet folder.
++
+[source, shell]
+----
+./<docker_darknet_path>/run.sh
+----
 
 == References
 
