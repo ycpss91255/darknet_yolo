@@ -2,27 +2,77 @@
 :experimental:
 :toc: left
 
+:docker_darknet_path: is the path of docker_darknet folder.
+:data_folder: is the path of data folder.
+:yolo_version: is your use YOLO version.
+:data_file: is the path of obj.data.
+:cfg_file: is the path of `<yolo_version>`.cfg.
+:weight_file: is the path of `<yolo_version>`.weights.
+
 == Usage
-1. Check your GPU compute capability, change Dockerfile `ARG CUDA_ARCH_BIN`.
-    * Referenve: https://developer.nvidia.com/cuda-gpus
-2. build Docker image
-    * `docker_darknet_path` is the path of docker_darknet folder.
+=== Check your GPU compute capability, change Dockerfile `ARG CUDA_ARCH_BIN`.
+* Reference: https://developer.nvidia.com/cuda-gpus
 
-    +
-    [source, shell]
-    ----
-    ./<docker_darknet_path>/build.sh
-    ----
+=== Build Docker image
+[NOTE]
+====
+The following content needs to be converted accordingly.
 
-3. run Docker container
+1. `<docker_darknet_path>` is the path of docker_darknet folder.
+====
 
-    * `docker_darknet_path` is the path of docker_darknet folder.
-+
+[source, shell]
+----
+./<docker_darknet_path>/build.sh
+----
+
+=== Run Docker container
+[NOTE]
+====
+The following content needs to be converted accordingly.
+
+1. `<docker_darknet_path>` {docker_darknet_path}
+====
+
 [source, shell]
 ----
 ./<docker_darknet_path>/run.sh
 ----
 
-== References
+=== Copy your label file to data/obj folder.
+[NOTE]
+====
+The following content needs to be converted accordingly.
 
+1. `<>` is the path of docker_darknet folder.
+2. `<docker_darknet_path>` {docker_darknet_path}
+====
+[source, shell]
+----
+cp <your_label_file> <data_folder>/obj
+----
+
+=== Copy pre-trained model and config to data folder.
+    * Look Darknet Github README.md Download pre-trained model and config.
+    * Reference: https://github.com/AlexeyAB/darknet[Darknet Github]
+
+=== run darknet training *(in Docker container)*
+[NOTE]
+====
+The following content needs to be converted accordingly.
+
+1. `<data_folder>` {dat_folder}
+2. `<yolo_version>` {yolo_version}
+3. `<data_file>` {data_file}
+4. `<cfg_file>` {cfg_file}
+5. `<weight_file>` {weight_file}
+====
+
+[source, shell]
+----
+python3 <data_folder>/script/set_config.py
+darknet detector train <data_file> <cfg_file> <weight_file>
+----
+
+== References
 * https://tku-iarc.notion.site/Docker-5dce2f794d53487f8afc0f75985d5b28[notion web]
