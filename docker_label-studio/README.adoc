@@ -17,8 +17,8 @@
 ====
 The following content needs to be converted accordingly.
 
-`<label_studio_path>` is the path of label studio project.
-`<save_server_data_path>` is the path of save server data.
+1. `<label_studio_path>` is the path of label studio project.
+2. `<save_server_data_path>` is the path of save server data.
 ====
 
 [source, shell]
@@ -31,6 +31,7 @@ chmod +x ./run.sh
 # or
 ./run.sh <save_server_data_path>
 ----
+=== Del all label studio data
 
 [source, shell]
 .del all label studio data
@@ -61,8 +62,8 @@ chmod +x ./del_server_data.sh
 ====
 以下內容需要進行對應的轉換。
 
-`<label_studio_path>` 是 label studio 專案的路徑。
-`<save_server_data_path>` 是儲存伺服器資料的路徑。
+1. `<label_studio_path>` 是 label studio 專案的路徑。
+2. `<save_server_data_path>` 是儲存伺服器資料的路徑。
 ====
 
 [source, shell]
