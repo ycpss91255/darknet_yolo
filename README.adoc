@@ -1,0 +1,24 @@
+= README
+:experimental:
+:toc: left
+
+== Usage
+
+=== Labeling
+* link:./docker_label-studio/README.adoc[Label Studio Readme]
+
+=== training
+* link:./docker_label-studio/README.adoc[Darknet Readme]
+* link:./ssd_mobile_net_v2/README.adoc[SSD Mobile net v2 Readme]
+
+=== Darknet to yolov4
+
+==== yolov4
+
+
+
+== References
+* https://labelstud.io/[Label Studio]
+* https://github.com/AlexeyAB/darknet[Darknet]
+
+* https://github.com/Tianxiaomo/pytorch-YOLOv4[pytorch-YOLOv4]
