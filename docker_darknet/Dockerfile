@@ -64,7 +64,7 @@ RUN apt update && \
 
 # * check your GPU Compute Capability
 # use `nvidia-smi -L` look your GPU name, and check your GPU Compute Capability
-# Referenve: https://developer.nvidia.com/cuda-gpus
+# Reference: https://developer.nvidia.com/cuda-gpus
 # GeForce GTX 1080 Ti
 ARG CUDA_ARCH_BIN=61
 # GeForce GTX 2080 Ti
