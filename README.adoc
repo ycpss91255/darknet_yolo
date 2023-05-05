@@ -11,7 +11,7 @@
 * link:./docker_label-studio/README.adoc[Darknet Readme]
 * link:./ssd_mobile_net_v2/README.adoc[SSD Mobile net v2 Readme]
 
-=== Darknet to yolov4
+=== pytorch yolov4
 
 ==== yolov4
 
